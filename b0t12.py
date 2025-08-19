@@ -2,7 +2,7 @@ import asyncio
 from aiogram import Bot, Dispatcher, types
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo
 
-TOKEN = "ТОКЕН_ТВОЕГО_БОТА"
+TOKEN = "8042770659:AAH-fAQ6IeyuBLExbWUBKOhYTcU8BGjAcVU"
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
