@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SQUAD Mini App</title>
+  <style>
+    body {
+      background: #0d1b2a;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .card {
+      background: #1b263b;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+    }
+    .green { background: #2ecc71; color: white; }
+    .red { background: #e74c3c; color: white; }
+  </style>
+</head>
+<body>
+  <h2>SQUAD Mini App</h2>
+  
+  <div class="card">
+    <h3>Выбор сигнала</h3>
+    <label>Валютная пара:</label>
+    <select id="pair">
+      <option>EUR/USD</option>
+      <option>GBP/USD</option>
+      <option>USD/JPY</option>
+    </select>
+    <br><br>
+    <label>Таймфрейм:</label>
+    <select id="timeframe">
+      <option>1m</option>
+      <option>5m</option>
+      <option>15m</option>
+    </select>
+    <br><br>
+    <label>Направление:</label>
+    <select id="direction">
+      <option>UP</option>
+      <option>DOWN</option>
+    </select>
+    <br><br>
+    <button class="green" onclick="sendData()">Отправить сигнал</button>
+  </div>
+
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script>
+    function sendData() {
+      const data = {
+        pair: document.getElementById("pair").value,
+        timeframe: document.getElementById("timeframe").value,
+        direction: document.getElementById("direction").value
+      };
+      Telegram.WebApp.sendData(JSON.stringify(data));
+    }
+  </script>
+</body>
+</html>
